@@ -37,7 +37,10 @@
           </BackgroundTasks>
         </Extension>
         <desktop:Extension Category="windows.fullTrustProcess" Executable="RemotePCon.FullTrust.exe">
-          <desktop:FullTrustProcess />
+          <desktop:FullTrustProcess>
+            <desktop:ParameterGroup GroupId="Wake" Parameters="/wake" />
+            <desktop:ParameterGroup GroupId="Release" Parameters="/release" />
+          </desktop:FullTrustProcess>
         </desktop:Extension>
       </Extensions>
     </Application>
