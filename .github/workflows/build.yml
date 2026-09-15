@@ -1,0 +1,37 @@
+name: Build RemotePCon
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build x64
+        shell: pwsh
+        run: |
+          msbuild .\RemotePCon.sln /m /p:Configuration=Release /p:Platform=x64 /p:AppxPackageSigningEnabled=false
+
+      - name: Collect MSIX
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Path . -Filter *.msix -Recurse
+          if (-not $files) { throw 'No MSIX was produced.' }
+          New-Item -ItemType Directory -Force -Path .\artifacts | Out-Null
+          $files | Copy-Item -Destination .\artifacts
+
+      - name: Upload MSIX
+        uses: actions/upload-artifact@v4
+        with:
+          name: RemotePCon-x64
+          path: artifacts/*.msix
