@@ -2,10 +2,13 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishTrimmed>false</PublishTrimmed>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>RemotePCon.FullTrust</AssemblyName>
     <RootNamespace>RemotePCon.FullTrust</RootNamespace>
-    <Platforms>x86;x64;ARM64</Platforms>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 </Project>
