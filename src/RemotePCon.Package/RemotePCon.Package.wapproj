@@ -27,6 +27,7 @@
     <EntryPointProjectUniqueName>..\RemotePCon\RemotePCon.csproj</EntryPointProjectUniqueName>
     <GenerateAppInstallerFile>false</GenerateAppInstallerFile>
     <PackageCertificateThumbprint></PackageCertificateThumbprint>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
