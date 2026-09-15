@@ -2,7 +2,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <ProjectGuid>{7D5B9F4B-5D0C-4F15-8B2C-4C4A0B1D4A10}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <RootNamespace>RemotePCon</RootNamespace>
@@ -11,8 +11,8 @@
     <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
-    <Platforms>x86;x64;ARM;ARM64</Platforms>
-    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm;win10-arm64</RuntimeIdentifiers>
+    <Platforms>x64</Platforms>
+    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
     <EnableDefaultApplicationDefinition>True</EnableDefaultApplicationDefinition>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageDir>$(SolutionDir)AppPackages\</AppxPackageDir>
@@ -27,6 +27,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.14" />
+    <Reference Include="Windows.ApplicationModel.FullTrustAppContract">
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" Condition="Exists('$(VCTargetsPath)\Microsoft.Cpp.Default.props')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
