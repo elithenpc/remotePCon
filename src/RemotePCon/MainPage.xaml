@@ -1,0 +1,27 @@
+<Page
+    x:Class="RemotePCon.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Padding="32">
+        <StackPanel MaxWidth="620">
+            <TextBlock Text="Remote PC On" FontSize="32" FontWeight="SemiBold" />
+            <TextBlock Margin="0,8,0,24" Text="Wake the PC when a Windows Gmail notification has the exact subject: wake" TextWrapping="Wrap" />
+
+            <Border Padding="16" CornerRadius="8" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Notification listener" FontSize="18" FontWeight="SemiBold" />
+                    <TextBlock x:Name="StatusText" Margin="0,6,0,14" TextWrapping="Wrap" />
+                    <Button Content="Enable / refresh listener" Click="Enable_Click" HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <Button Content="Test keep-awake" Click="Wake_Click" Margin="0,0,12,0" />
+                <Button Content="Release keep-awake" Click="Release_Click" />
+            </StackPanel>
+
+            <TextBlock Margin="0,22,0,0" Opacity="0.7" Text="The helper uses ES_SYSTEM_REQUIRED, so it keeps Windows awake without forcing the display on. Closing the app does not disable the notification trigger." TextWrapping="Wrap" />
+        </StackPanel>
+    </Grid>
+</Page>
